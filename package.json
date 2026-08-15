@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "python3 -m http.server 3000 --bind 0.0.0.0 --directory out",
     "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
-    "start": "NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log",
+    "start": "NODE_ENV=production HOSTNAME=0.0.0.0 PORT=$PORT bun .next/standalone/server.js",
     "lint": "eslint .",
     "db:push": "prisma db push --accept-data-loss",
     "db:generate": "prisma generate",
